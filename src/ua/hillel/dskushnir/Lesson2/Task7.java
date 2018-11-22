@@ -1,12 +1,12 @@
-package ua.hillel.Lesson2;
+package ua.hillel.dskushnir.Lesson2;
 
-public class Task5 {
+public class Task7 {
     public static void main(String[] args) {
         int n = 10;
         int[] array = new int[n];
         initRandomArray(array, 10, 20);
         printArray(array);
-        printDivTwoElem(array);
+        System.out.println("average ="+ average(array));
     }
     private static void initRandomArray(int[] array, int a, int b) {
         for (int i = 0; i < array.length; i++) {
@@ -19,11 +19,14 @@ public class Task5 {
         }
         System.out.println();
     }
-    private static void printDivTwoElem(int[] array) {
+    private static int sumArray(int[]array) {
+        int sum = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 == 0 ) {
-                System.out.print(array[i] + " ");
-            }
+            sum += array[i];
         }
+        return sum;
+    }
+    private static double average(int[]array){
+        return (double)sumArray(array)/array.length;
     }
 }

@@ -1,12 +1,12 @@
-package ua.hillel.Lesson2;
+package ua.hillel.dskushnir.Lesson2;
 
-public class Task9 {
+public class Task5 {
     public static void main(String[] args) {
         int n = 10;
         int[] array = new int[n];
         initRandomArray(array, 10, 20);
         printArray(array);
-        System.out.println("product of odd elements =" + multiplicArray(array));
+        printDivTwoElem(array);
     }
     private static void initRandomArray(int[] array, int a, int b) {
         for (int i = 0; i < array.length; i++) {
@@ -19,13 +19,11 @@ public class Task9 {
         }
         System.out.println();
     }
-    private static int multiplicArray(int[] array) {
-        int mult = 1;
+    private static void printDivTwoElem(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] % 2 != 0) {
-                mult *= array[i];
+            if (array[i] % 2 == 0 ) {
+                System.out.print(array[i] + " ");
             }
         }
-        return mult;
     }
 }

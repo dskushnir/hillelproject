@@ -1,4 +1,4 @@
-package ua.hillel.Lesson1;
+package ua.hillel.dskushnir.Lesson1;
 
 public class Task2 {
     public static void main(String[] args) {
