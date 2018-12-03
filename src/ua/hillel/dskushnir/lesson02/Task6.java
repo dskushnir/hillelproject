@@ -1,12 +1,12 @@
-package ua.hillel.dskushnir.Lesson2;
+package ua.hillel.dskushnir.lesson02;
 
-public class Task4 {
+public class Task6 {
     public static void main(String[] args) {
         int n = 10;
         int[] array = new int[n];
         initRandomArray(array, 10, 20);
         printArray(array);
-        printDivThreeElem(array);
+        System.out.println("sum ="+ sumArray(array));
     }
     private static void initRandomArray(int[] array, int a, int b) {
         for (int i = 0; i < array.length; i++) {
@@ -15,16 +15,15 @@ public class Task4 {
     }
     private static void printArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
-
             System.out.print(array[i] + " ");
         }
         System.out.println();
     }
-    private static void printDivThreeElem(int[] array) {
+    private static int sumArray(int[]array) {
+        int sum = 0;
         for (int i = 0; i < array.length; i++) {
-            if (array[i] % 3 == 0 ) {
-                System.out.print(array[i] + " ");
-            }
+            sum += array[i];
         }
+        return sum;
     }
 }

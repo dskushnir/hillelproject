@@ -1,12 +1,12 @@
-package ua.hillel.dskushnir.Lesson2;
+package ua.hillel.dskushnir.lesson02;
 
-public class Task8 {
+public class Task5 {
     public static void main(String[] args) {
         int n = 10;
         int[] array = new int[n];
         initRandomArray(array, 10, 20);
         printArray(array);
-        System.out.println("sum min + max  ="+ sumMinMaxArray(array));
+        printDivTwoElem(array);
     }
     private static void initRandomArray(int[] array, int a, int b) {
         for (int i = 0; i < array.length; i++) {
@@ -19,25 +19,11 @@ public class Task8 {
         }
         System.out.println();
     }
-    private static int minArray(int[]array) {
-        int min = array[0];
+    private static void printDivTwoElem(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] < min) {
-                min = array[i];
+            if (array[i] % 2 == 0 ) {
+                System.out.print(array[i] + " ");
             }
         }
-        return min;
-    }
-    private static int maxArray(int[]array) {
-        int max = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > max) {
-                max = array[i];
-            }
-        }
-        return max;
-    }
-    private static int sumMinMaxArray(int[]array) {
-        return   minArray(array) + maxArray(array);
     }
 }
