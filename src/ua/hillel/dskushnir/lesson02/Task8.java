@@ -37,7 +37,8 @@ public class Task8 {
         }
         return max;
     }
-    private static int sumMinMaxArray(int[]array) {
+    private static int sumMinMaxArray(int[]array)
+    {
         return   minArray(array) + maxArray(array);
     }
 }

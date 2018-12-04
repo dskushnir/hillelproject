@@ -1,6 +1,8 @@
 package ua.hillel.dskushnir.lesson04;
 
 import java.util.Random;
+import java.util.stream.IntStream;
+
 
 public class Task4 {
     public static void main(String[] args) {
@@ -8,11 +10,18 @@ public class Task4 {
         initChessboard(chessboard);
         shuffle(chessboard);
         printArray(chessboard);
+        System.out.println();
 
+        int[] sumOfRows = sumArrayRows(chessboard);
 
+        int[] sumOfColumn = sumArrayColumns(chessboard);
 
+        if ((isBeats(sumOfRows)>0)||(isBeats(sumOfColumn)>0)){
+            System.out.println("Beats" );
+        }else {
+            System.out.println("Not beats");
+        }
     }
-
     private static void initChessboard(int[][] chessboard) {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 1; j++) {
@@ -26,7 +35,6 @@ public class Task4 {
             }
         }
     }
-
     private static void printArray(int[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array.length; j++) {
@@ -35,7 +43,6 @@ public class Task4 {
             System.out.println();
         }
     }
-
     private static void shuffle(int[][] array) {
         Random random = new Random();
 
@@ -49,9 +56,71 @@ public class Task4 {
             }
         }
     }
-
-
+    private static int[] sumArrayRows(int[][] array) {
+        int[] sumOfRows = new int[array.length];
+        for (int i = 0; i < array.length; i++)
+            for (int j = 0; j < array[0].length; j++)
+                sumOfRows[i] += array[i][j];
+        return sumOfRows;
+    }
+    private static int[] sumArrayColumns(int[][] array) {
+        int index = 0;
+        int sumOfColumns[] = new int[array[index].length];
+        for (int i = 0; i < array[0].length; i++) {
+            int sum = 0;
+            for (int j = 0; j < array.length; j++) {
+                sum += array[j][i];
+            }
+            sumOfColumns[index] = sum;
+            index++;
+        }
+        return sumOfColumns;
+    }
+    private static int isBeats (int[] array) {
+        int count = 0;
+        for (int i = 0; i < array.length; i++){
+            if (array[i] > 1)
+                count ++;
+        }
+        return count;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
