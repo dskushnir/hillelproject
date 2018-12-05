@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hillelproject">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/hillelproject.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
