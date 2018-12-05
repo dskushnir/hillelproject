@@ -1,6 +1,6 @@
 package ua.hillel.dskushnir.lesson03;
 
-public class Task3 {
+class Task3 {
 
     public static void main(String[] args) {
         String string = "Not New York, Roy went on";
