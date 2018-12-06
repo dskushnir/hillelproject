@@ -8,15 +8,16 @@ import java.util.stream.IntStream;
 
 public class Task2 {
     public static void main(String[] args) {
-        int[] bottlOfPills = {200, 120, 150, 180, 300, 240, 110, 210, 160, 121};
-        shakeArray(bottlOfPills);
+        int[]scales = new int[];
+        shakeArray(scales);
         System.out.println("Bottle of pills");
-        printArray(bottlOfPills);
-        System.out.println("Non-standard mass in position =" + indexOfNonstandartMass(bottlOfPills));
-        System.out.println("Non-standard mass in position =" + indexOf(bottlOfPills));
+        printArray(scales);
+        System.out.println("Non-standard mass in position =" + indexOfNonstandartMass(scales));
+        System.out.println("Non-standard mass in position =" + indexOf(scales));
 
 
     }
+
 
     private static void shakeArray(int[] array) {
         for (int i = array.length - 1; i > 0; i--) {

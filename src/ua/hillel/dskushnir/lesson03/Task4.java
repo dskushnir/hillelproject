@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-public class Task5 {
+public class Task4 {
     public static void main(String[] args) {
         int mounth = 240;
         BigDecimal rateOfYear = new BigDecimal(0.2);
