@@ -8,50 +8,50 @@ import java.util.stream.IntStream;
 
 public class Task2 {
     public static void main(String[] args) {
-        int[]scales = new int[];
-        shakeArray(scales);
-        System.out.println("Bottle of pills");
-        printArray(scales);
-        System.out.println("Non-standard mass in position =" + indexOfNonstandartMass(scales));
-        System.out.println("Non-standard mass in position =" + indexOf(scales));
+        int pill1 = 10;
+        int pill2 = 11;
+        int[] pillsOnScale = new int[10];
 
+        initArray1(pillsOnScale, pill1);
+        replaceArray(pillsOnScale,pill2);
+        System.out.println("Put 1 pill from the first bottle,2 pills - from the second bottle, 3 pills - from the third bottle -and so on--on the scale ");
+        printArray(pillsOnScale);
+        System.out.println("Weight of pills =  "+sumArray(pillsOnScale));
+        System.out.println("Number of bottle with non-standard pills =" +lastDigit(sumArray(pillsOnScale)));
 
     }
-
-
-    private static void shakeArray(int[] array) {
-        for (int i = array.length - 1; i > 0; i--) {
-            Random random = new Random();
-            int k = random.nextInt(i + 1);
-            int a = array[k];
-            array[k] = array[i];
-            array[i] = a;
+    private static void initArray1(int[] array, int pill1) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = pill1 * (i + 1);
         }
     }
-
+    private static void replaceArray(int []array,int pills2){
+        int index = (int)(Math.random()*10)+1;
+        for (int i = 0; i < array.length; i++) {
+            if (i == index) {
+                array[index] = pills2 * (index + 1);
+            }
+        }
+    }
     private static void printArray(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ",");
+            System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
-
-    private static int indexOfNonstandartMass(int[] array) {
-        int index = 0;
-        for (int i = 0; i < array.length + 1; i++) {
-            if (array[i] % 10 != 0) {
-                index = i + 1;
-                break;
-            }
+    private static int sumArray(int[] array) {
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
         }
-        return index;
+        return sum;
     }
-
-    public static int indexOf(int[] arr) {
-        return IntStream.range(0, arr.length).filter(i -> arr[i] % 10 != 0).findFirst().orElse(-1) + 1;
-    }
-
+    private static int lastDigit(int number) {
+        return number % 10; }
 }
+
+
+
 
 
 
