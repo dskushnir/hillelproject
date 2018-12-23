@@ -6,7 +6,8 @@ public class Task4 {
         int[] array = new int[n];
         initRandomArray(array, 10, 20);
         printArray(array);
-        printDivThreeElem(array);
+        int[] result = DivThreeElem(array);
+        printArray(result);
     }
     private static void initRandomArray(int[] array, int a, int b) {
         for (int i = 0; i < array.length; i++) {
@@ -19,12 +20,24 @@ public class Task4 {
             System.out.print(array[i] + " ");
         }
         System.out.println();
-    }
-    private static void printDivThreeElem(int[] array) {
+
+
+    } public static int[] DivThreeElem(int[] array) {
+        int counter = 0;
+
         for (int i = 0; i < array.length; i++) {
-            if (array[i] % 3 == 0 ) {
-                System.out.print(array[i] + " ");
+            if (array[i] % 3 == 0) {
+                counter++;
             }
         }
+        int[] result = new int[counter];
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 3 == 0) {
+                result[index] = array[i];
+                index++;
+            }
+        }
+        return result;
     }
 }

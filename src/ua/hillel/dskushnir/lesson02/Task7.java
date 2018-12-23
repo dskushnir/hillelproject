@@ -1,5 +1,7 @@
 package ua.hillel.dskushnir.lesson02;
 
+
+
 public class Task7 {
     public static void main(String[] args) {
         int n = 10;
@@ -19,14 +21,26 @@ public class Task7 {
         }
         System.out.println();
     }
-    private static int sumArray(int[]array) {
-        int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
+
+
+
+   public static double average(int[]array) {
+        if (array.length == 0 || array.length < 0) {
+            throw new IllegalArgumentException("Value of array.length <0 or array.length=0");
         }
-        return sum;
+        double average = 0;
+        double sum = 0;
+        double length = (double)array.length;
+        for (int j = 0; j < array.length; j++) {
+             sum += (double)array[j];
+
+            average = sum / length;
+        }
+        return average;
     }
-    private static double average(int[]array){
-        return (double)sumArray(array)/array.length;
-    }
+
+
+
+
+
 }

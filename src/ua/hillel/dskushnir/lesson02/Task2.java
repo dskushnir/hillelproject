@@ -1,23 +1,35 @@
 package ua.hillel.dskushnir.lesson02;
 
+import java.util.Scanner;
+
 public class Task2 {
     public static void main(String[] args) {
-        int c=1;
-        int b= 20;
-        int n=(int) (Math.random() * (b-c+1) + c);
-        int[] array = new int[n];
-        initRandomArray(array,1,n);
-        printArray(array);
+
+        Scanner myScanner = new Scanner(System.in);
+        System.out.println("Enter a number>0");
+        int n = myScanner.nextInt();
+        int[]array=new int[n];
+        int[]result=initArray(array,n);
+        printArray(result);
+
     }
-    private static void initRandomArray(int[]array, int a, int b) {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * (b-a+1) + a);
+    public static int[]initArray(int[]array,int n) {
+        if (n==0 || n<0){
+            throw new IllegalArgumentException("Value of n <0 or n+0, enter n>0");
         }
+
+        for (int i = 0; i < n; i++) {
+            array[i] = i+1;
+        }
+        return array;
     }
-    private static void printArray(int[]array){
-        for (int i = 0; i <array.length ; i++) {
-            System.out.print(array[i]+" ");
+
+    private static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
         System.out.println();
     }
+
+
 }

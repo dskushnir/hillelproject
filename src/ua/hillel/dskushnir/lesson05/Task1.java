@@ -1,10 +1,14 @@
 package ua.hillel.dskushnir.lesson05;
 
+import java.lang.annotation.*;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Task1 {
+
+ public class Task1 {
     public static void main(String[] args) {
+
+
         Complex complex1 = new Complex(6.0, 2.0);
         Complex complex2 = new Complex(-2.0, 6.0);
         Complex complex3 = new Complex(0.5, 1.5);
@@ -68,6 +72,10 @@ public class Task1 {
         } else {
             System.out.println("Complex3 not equals complex1");
         }
+
+
+
+
     }
 }
 
