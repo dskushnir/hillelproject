@@ -10,7 +10,7 @@ public class Task7Test {
         int[] array = {10, 1, 10, 1, 10, 1, 10, 1, 10, 1};
         double test =5.5;
         double ave=Task7.average(array);
-        Assert.assertEquals(test,ave);
+        Assert.assertEquals(test,ave,0.00001);
     }
 }
 
