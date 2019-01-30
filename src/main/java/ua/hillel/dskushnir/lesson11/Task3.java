@@ -20,9 +20,10 @@ public class Task3 {
             map.put(sum-list.get(i),i);
             if (map.containsKey(list.get(i))) {
                 System.out.println(map.get(list.get(i)) + "+" + map.get(sum - list.get(i)));
-
             }
-            System.out.println("Number not found");
+            else {
+                System.out.println("Number not found");
+            }
 
 
 
