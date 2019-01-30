@@ -16,9 +16,11 @@ public class Task3 {
     }
 
     private  static void map(List<Integer> list, Integer sum,Map<Integer,Integer>map) {
+
         for (int i = 0; i < list.size(); i++) {
             map.put(sum-list.get(i),i);
             if (map.containsKey(list.get(i))) {
+
                 System.out.println(map.get(list.get(i)) + "+" + map.get(sum - list.get(i)));
             }
             else {
