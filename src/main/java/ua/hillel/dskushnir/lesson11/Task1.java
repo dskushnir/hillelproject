@@ -1,30 +1,36 @@
 package ua.hillel.dskushnir.lesson11;
 
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
+
 
 public class Task1 {
     public static void main(String[] args) {
-        List<Object>objects = List.of(1,List.of(2,List.of(3,4,5),List.of(6,7),List.of(8,List.of(9,10))));
-        System.out.println(objects);
-        ListIterator<Object>listIterator=objects.listIterator();
-        while(listIterator.hasNext()){
-            System.out.println(listIterator.next());
+        List<Object> list = List.of(1, 2, List.of(3, List.of(4, 5)), 6);
+        List<Object> result = flatten(list);
+        System.out.println(result);
+    }
+
+    private static List<Object> flatten(List<Object> list) {
+        ArrayList<Object> objects = new ArrayList<>();
+        for (Object o : list) {
+            if (o instanceof List) {
+                List<Object> flatten = flatten((List<Object>) o);
+                objects.addAll(flatten);
+            } else {
+                objects.add(o);
+
+            }
         }
-        while(listIterator.hasPrevious()){
-            System.out.println(listIterator.previous());
-        }
-
-
-        /*void recurson(List<Object> objects,int index) {
-            if( index >= objects.size() ) return;
-            Object o= objects.get(index) ;
-
-            recurson (objects,index+1);*/
-
-
-
+        return objects;
     }
 
 }
+
+
+
+
+
+
+

@@ -253,36 +253,33 @@ public class Stream {
         byte width=12;
 
 
-
-
     }
 
 
 
+    static class Car implements Serializable {
+        static long serialVersionUID = 57631562110954875L;
+        public static String ss;
+        public int id;
+        List<Weel> weels;
+        String name;
 
-static class Car implements Serializable {
-    static long serialVersionUID = 57631562110954875L;
-    public static String ss;
-    public int id;
-    List<Weel> weels;
-    String name;
+        public Car() {
+        }
 
-    public Car() {
+        public Car(int id, List<Weel> weels) {
+            this.id = id;
+            this.weels = weels;
+        }
+
+        @Override
+        public String toString() {
+            return "Car{" +
+                    "id=" + id +
+                    ", weel=" + weels +
+                    '}';
+        }
     }
-
-    public Car(int id, List<Weel> weels) {
-        this.id = id;
-        this.weels = weels;
-    }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", weel=" + weels +
-                '}';
-    }
-
 
     static class TeslaCar extends Car implements Serializable {
         public TeslaCar(int id, List<Weel> weels) {
@@ -301,7 +298,7 @@ static class Car implements Serializable {
 
     static class Weel implements Externalizable {
         static long serialVersionUID = 57631562110954335L;
-        int radius;
+        int radus;
         byte width;
         String vendor;
 
@@ -309,7 +306,7 @@ static class Car implements Serializable {
         }
 
         public Weel(int radus, byte width, String vendor) {
-            this.radius = radus;
+            this.radus = radus;
             this.width = width;
             this.vendor = vendor;
         }
@@ -317,7 +314,7 @@ static class Car implements Serializable {
         @Override
         public String toString() {
             return "Weel{" +
-                    "radus=" + radius +
+                    "radus=" + radus +
                     ", width=" + width +
                     ", vendor='" + vendor + '\'' +
                     '}';
@@ -325,7 +322,7 @@ static class Car implements Serializable {
 
         @Override
         public void writeExternal(ObjectOutput out) throws IOException {
-            out.writeInt(radius);
+            out.writeInt(radus);
             out.writeByte(width);
             out.writeUTF(vendor);
             out.flush();
@@ -333,7 +330,7 @@ static class Car implements Serializable {
 
         @Override
         public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-            radius = in.readInt();
+            radus = in.readInt();
             width = in.readByte();
             vendor = in.readUTF();
             // System.out.println("readExternal o " + (Integer) in.readInt());
@@ -342,7 +339,6 @@ static class Car implements Serializable {
             in.close();*/
         }
     }
-}
 
 
 }
