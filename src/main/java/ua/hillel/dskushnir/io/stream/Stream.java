@@ -1,14 +1,18 @@
 package ua.hillel.dskushnir.io.stream;
 
+import org.apache.commons.io.IOUtils;
+
 import java.io.*;
 import java.net.URL;
 import java.nio.Buffer;
+import java.nio.charset.Charset;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -19,6 +23,7 @@ public class Stream {
          byteBufferedCopy();
          linesCopy();
          dataStream();
+         bytyBufferCopy();
 
         url();
        zipStream();
@@ -154,6 +159,16 @@ public class Stream {
             }
 
         }
+
+    }
+    private static void bytyBufferCopy()throws IOException{
+
+        FileInputStream in = new FileInputStream("E:\\Hillel\\text5");
+        FileOutputStream out = new FileOutputStream("E:\\Hillel\\text7");
+        IOUtils.copy(IOUtils.buffer(in),IOUtils.buffer(out));
+        String some_text1 = "some text";
+        InputStream some_text = IOUtils.toInputStream(some_text1, Charset.defaultCharset());
+        IOUtils.copy(some_text,new FileOutputStream("someText.txt"));
 
     }
 
