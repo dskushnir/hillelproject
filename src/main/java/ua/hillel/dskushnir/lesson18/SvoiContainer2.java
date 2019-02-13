@@ -147,7 +147,7 @@ public class SvoiContainer2 implements Collection {
         return true;
     }
     // это второй вариант- оставляет только Jim.
-    // Подскажи, пожадуйста, в каком направление продвигаться,
+    // Подскажи, пожалуйста, в каком направлении продвигаться,
      /* @Override
     public boolean removeAll(Collection c) {
         int counter = 0;
