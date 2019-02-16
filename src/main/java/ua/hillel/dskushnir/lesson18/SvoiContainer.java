@@ -5,8 +5,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Objects;
 
-public class SvoiContainer2 implements Collection {
+public class SvoiContainer implements Collection {
     private Object[] objects = new Object[0];
+    int size = size();
 
 
 
@@ -132,65 +133,49 @@ public class SvoiContainer2 implements Collection {
         return true;
     }
 
-
-   // removeAll метод удаляет только первое совпадение- оно и понятно-  remove проходит только один раз . Можно ли remove зациклить?
-    // У меня не получилось, к сожалению.
-
     @Override
     public boolean removeAll(Collection c) {
-
         for (Object o : c) {
-            if (remove(o)) {
-                return false;
-            }
+            remove(o);
         }
         return true;
     }
-    // это второй вариант- оставляет только Jim.
-    // Подскажи, пожалуйста, в каком направлении продвигаться,
-     /* @Override
-    public boolean removeAll(Collection c) {
-        int counter = 0;
-        for (Object o : c) {
-            for (int i = 0; i < size(); i++) {
-                if (!Objects.equals(objects[i], o)) {
-                    counter++;
-                    Object[] temp = new Object[counter];
-                    for (int j = 0; j < temp.length; j++) {
-                        temp[j] = objects[i];
-                    }
-                    objects = temp;
-                    return true;
-                }
-            }
-        }
-        return false;
-    }*/
-
-
 
     @Override
     public boolean retainAll(Collection c) {
+        int counter=0;
+        for (Object o : c)
+            if (contains(o)) {
+                counter++;
 
-
-        return false;
+        }
+        Object[] temp = new Object[counter];
+        int j = 0;
+        for (int i = 0; i < size(); i++) {
+            if (c.contains(objects[i])) {
+                temp[j++] = objects[i];
+            }
+        }
+        objects = temp;
+        return true;
     }
 
     @Override
     public void clear() {
-
         for (int i = 0; i < size(); i++) {
             objects[i] = null;
         }
 
-        objects=new Object[0];
+
+       objects=new Object[0];
     }
 
     @Override
     public String toString() {
-        return "SvoiContainer2{" +
+        return "SvoiContainer{" +
                 "objects=" + Arrays.toString(objects) +
                 '}';
     }
 
 }
+

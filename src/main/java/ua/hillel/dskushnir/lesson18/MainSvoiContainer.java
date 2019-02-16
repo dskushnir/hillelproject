@@ -2,9 +2,9 @@ package ua.hillel.dskushnir.lesson18;
 
 import java.util.*;
 
-public class MainSvoiContainer2 {
+public class MainSvoiContainer {
     public static void main(String[] args) {
-        SvoiContainer2 svoiContainer1 = new SvoiContainer2();
+        SvoiContainer svoiContainer1 = new SvoiContainer();
         svoiContainer1.add("Tim");
         svoiContainer1.add("Tom");
         svoiContainer1.add("Alex");
@@ -14,7 +14,7 @@ public class MainSvoiContainer2 {
         System.out.println( "If contains Jon ="+svoiContainer1.contains("Jon"));
         System.out.println();
 
-        SvoiContainer2 svoiContainer2=new SvoiContainer2();
+        SvoiContainer svoiContainer2=new SvoiContainer();
         svoiContainer2.add("Jon");
         svoiContainer2.add("Jack");
         System.out.println("svoiContainer2");
@@ -57,10 +57,23 @@ public class MainSvoiContainer2 {
         svoiContainer1.add("Jim");
         System.out.println(svoiContainer1);
         System.out.println();
-        System.out.println("svoiContainer2.removeAll(svoiContainer1)  - Dont remove all");
+        System.out.println("svoiContainer2.removeAll(svoiContainer1)" );
        svoiContainer2.removeAll(svoiContainer1);
         System.out.println(svoiContainer2);
-     //  System.out.println(svoiContainer2.retainAll(svoiContainer1));
+        System.out.println();
+        svoiContainer1.add("Piter");
+        svoiContainer1.add("Jimmi");
+        svoiContainer2.add("Alex");
+        System.out.println(svoiContainer1);
+        System.out.println(svoiContainer2);
+        System.out.println(svoiContainer1.retainAll(svoiContainer2));
+        System.out.println("svoiContainer1.retainAll(svoiContainer2) ="+ svoiContainer1.retainAll(svoiContainer2));
+
+        System.out.println();
+
+        System.out.println(svoiContainer1);
+        System.out.println(svoiContainer2);
+
 
 
 
