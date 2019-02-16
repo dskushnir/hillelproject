@@ -66,7 +66,7 @@ public class MainSvoiContainer {
         svoiContainer2.add("Alex");
         System.out.println(svoiContainer1);
         System.out.println(svoiContainer2);
-        System.out.println(svoiContainer1.retainAll(svoiContainer2));
+       
         System.out.println("svoiContainer1.retainAll(svoiContainer2) ="+ svoiContainer1.retainAll(svoiContainer2));
 
         System.out.println();
