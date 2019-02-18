@@ -12,8 +12,8 @@ import java.util.*;
             private Node next;
             private Node prev;
 
-            private Node(Object input) {
-                this.data = input;
+            private Node(Object object) {
+                this.data = object;
                 this.next = null;
                 this.prev = null;
             }
