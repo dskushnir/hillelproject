@@ -25,22 +25,33 @@ public class MainDoubly {
         doublyLinkedList.add(1,"Paul");
         doublyLinkedList.add(0,"Piter");
         System.out.println(doublyLinkedList.toString());
+        System.out.println("index of Paul = "+doublyLinkedList.indexOf("Paul"));
         System.out.println();
         Iterator iterator=doublyLinkedList.listIterator();
         System.out.println(iterator.next());
         System.out.println(iterator.next());
         System.out.println(iterator.next());
-        System.out.println("index of Paul = "+doublyLinkedList.indexOf("Paul"));
-
+        ((DoublyLinkedList.ListIterator) iterator).add("Joana");
+        System.out.println(doublyLinkedList);
+        iterator.next();
+        iterator.remove();
+        System.out.println(doublyLinkedList.toString());
         System.out.println(((DoublyLinkedList.ListIterator) iterator).hasPrevious());
         System.out.println();
         System.out.println(((DoublyLinkedList.ListIterator) iterator).previous());
         System.out.println(((DoublyLinkedList.ListIterator) iterator).previous());
         System.out.println(((DoublyLinkedList.ListIterator) iterator).previous());
         System.out.println(iterator.hasNext());
-        System.out.println("index of Paul = "+doublyLinkedList.indexOf("Paul"));
-        doublyLinkedList.remove(2);
         System.out.println(doublyLinkedList.toString());
+
+
+
+
+
+
+
+
+
 
 
 

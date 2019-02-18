@@ -12,26 +12,22 @@ import java.util.*;
             private Node next;
             private Node prev;
 
-            public Node(Object input) {
+            private Node(Object input) {
                 this.data = input;
                 this.next = null;
                 this.prev = null;
             }
 
             public String toString() {
+
                 return String.valueOf(this.data);
             }
         }
 
+
         public void addFirst(Object input) {
-
-
             Node newNode = new Node(input);
-
-
             newNode.next = head;
-
-
             if (head != null)
                 head.prev = newNode;
             head = newNode;
@@ -42,9 +38,7 @@ import java.util.*;
         }
 
         public void addLast(Object input) {
-
             Node newNode = new Node(input);
-
             if (size == 0) {
                 addFirst(input);
             } else {
@@ -55,7 +49,7 @@ import java.util.*;
             }
         }
 
-        Node node(int index) {
+       private Node node(int index) {
             if (index < size / 2) {
                 Node x = head;
                 for (int i = 0; i < index; i++)
@@ -170,15 +164,12 @@ import java.util.*;
                 nextIndex = 0;
             }
 
-
             public Object next() {
                 lastReturned = next;
                 next = next.next;
                 nextIndex++;
                 return lastReturned.data;
             }
-
-
             public boolean hasNext() {
                 return nextIndex < size();
             }
@@ -254,6 +245,12 @@ import java.util.*;
 
 
     }
+
+
+
+
+
+
 
 
 
