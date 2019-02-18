@@ -25,8 +25,8 @@ import java.util.*;
         }
 
 
-        public void addFirst(Object input) {
-            Node newNode = new Node(input);
+        public void addFirst(Object object) {
+            Node newNode = new Node(object);
             newNode.next = head;
             if (head != null)
                 head.prev = newNode;
@@ -37,10 +37,10 @@ import java.util.*;
             }
         }
 
-        public void addLast(Object input) {
-            Node newNode = new Node(input);
+        public void addLast(Object object) {
+            Node newNode = new Node(object);
             if (size == 0) {
-                addFirst(input);
+                addFirst(object);
             } else {
                 tail.next = newNode;
                 newNode.prev = tail;
@@ -63,13 +63,13 @@ import java.util.*;
             }
         }
 
-        public void add(int k, Object input) {
-            if (k == 0) {
-                addFirst(input);
+        public void add(int index, Object object) {
+            if (index == 0) {
+                addFirst(object);
             } else {
-                Node temp1 = node(k - 1);
+                Node temp1 = node(index - 1);
                 Node temp2 = temp1.next;
-                Node newNode = new Node(input);
+                Node newNode = new Node(object);
                 temp1.next = newNode;
                 newNode.next = temp2;
                 if (temp2 != null)
@@ -107,10 +107,10 @@ import java.util.*;
             return returnData;
         }
 
-        public Object remove(int k) {
-            if (k == 0)
+        public Object remove(int index) {
+            if (index == 0)
                 return removeFirst();
-            Node temp = node(k - 1);
+            Node temp = node(index - 1);
             Node todoDeleted = temp.next;
             temp.next = temp.next.next;
             if (temp.next != null) {
@@ -133,8 +133,8 @@ import java.util.*;
             return size;
         }
 
-        public Object get(int k) {
-            Node temp = node(k);
+        public Object get(int index) {
+            Node temp = node(index);
             return temp.data;
         }
 
@@ -188,8 +188,8 @@ import java.util.*;
                 return lastReturned.data;
             }
 
-            public void add(Object input) {
-                Node newNode = new Node(input);
+            public void add(Object object) {
+                Node newNode = new Node(object);
                 if (lastReturned == null) {
                     head = newNode;
                     newNode.next = next;
