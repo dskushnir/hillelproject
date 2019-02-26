@@ -176,14 +176,13 @@ public class Tree implements Iterable<String> {
     public void descOrder(TreeNode node) {
         if (node != null) {
             descOrder(node.right);
-            System.out.print((node.key).toString()+"," );
+            System.out.print(node.key+"," );
             descOrder(node.left);
         }
     }
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
-        for (String data : this) stringBuffer.append(data.toString() + ",");
-
+        for (String data : this) stringBuffer.append(data + ",");
         return stringBuffer.toString();
     }
 
