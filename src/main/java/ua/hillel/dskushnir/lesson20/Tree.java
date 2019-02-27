@@ -87,8 +87,7 @@ public class Tree implements Iterable<String> {
         }
     }
 
-    public boolean remove(Object obj) {
-        String string = (String) obj;
+    public boolean remove(String string) {
         if (this.contains(string)) {
             root = removeThis(root, string);
             --size;
