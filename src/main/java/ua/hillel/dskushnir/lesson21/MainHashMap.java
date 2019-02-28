@@ -11,26 +11,31 @@ public class MainHashMap {
         hashMap.put(3,"c");
         hashMap.put(4,"d");
         hashMap.getInfo();
+        System.out.println();
+        System.out.println(hashMap.toString());
+        System.out.println("Put element");
         hashMap.put(5,"l");
         System.out.println();
         hashMap.getInfo();
         System.out.println();
-        System.out.println(hashMap.size());
+        System.out.println(hashMap.toString());
+        System.out.println();
+        System.out.println("Size="+ hashMap.size());
         System.out.println("If contains key=1 -"+hashMap.containsKey(1));
         System.out.println("If contains value=b-"+hashMap.containsValue("b"));
         hashMap.getInfo();
         System.out.println();
         System.out.println("If isEmpty - " +hashMap.isEmpty());
-        System.out.println("Value (key=3"+ hashMap.get(3));
+        System.out.println("Value (key=3)="+ hashMap.get(3));
         System.out.println("Remove Value (key=4)");
         System.out.println(hashMap.remove(4));
         hashMap.getInfo();
         System.out.println();
-        System.out.println(hashMap.size());
+        System.out.println("Size="+hashMap.size());
         System.out.println();
         System.out.println("Clear");
         hashMap.clear();
-        System.out.println("Size" +hashMap.size());
+        System.out.println("Size=" +hashMap.size());
 
 
     }

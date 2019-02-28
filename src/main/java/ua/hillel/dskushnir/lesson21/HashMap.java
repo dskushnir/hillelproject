@@ -1,12 +1,13 @@
 package ua.hillel.dskushnir.lesson21;
 
-import java.util.*;
+
+import java.util.Arrays;
 
 public class HashMap<K,V> {
     private Entry<K, V>[] data;
     private int initialCapacity;
-    private K key;
-    private V value;
+   // private K key;
+    //private V value;
 
     public HashMap(int capacity) {
         initialCapacity = capacity;
@@ -85,9 +86,7 @@ public class HashMap<K,V> {
                 current = current.next;
             }
             previous.next = entry;
-
         }
-
     }
 
     public V get(K key) {
@@ -187,11 +186,7 @@ public class HashMap<K,V> {
                     return true;
         return false;
 
-
     }
-
-
-
 
     public void clear() {
         Entry[] tab = data;
@@ -199,6 +194,7 @@ public class HashMap<K,V> {
             tab[i] = null;
         data = new Entry[0];
     }
+
 
 
     public void getInfo() {
@@ -212,6 +208,15 @@ public class HashMap<K,V> {
                 }
             }
         }
+
+    }
+
+    @Override
+    public String toString() {
+        return "HashMap{" +
+                "data=" + Arrays.toString(data) +
+                ", initialCapacity=" + initialCapacity +
+                '}';
     }
     //  Set<K> keySet() и  Set<Map.Entry<K, V>> entrySet()  не готовы.
   /*  public void putAll(Map<K, V> m) {
