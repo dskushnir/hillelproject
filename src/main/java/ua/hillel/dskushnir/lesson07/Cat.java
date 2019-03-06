@@ -2,15 +2,21 @@ package ua.hillel.dskushnir.lesson07;
 
 @MyAnn({"This is", "my", "Cat"})
 public class Cat {
+
     private String name;
     private String bride;
     private String color;
+
+    public Cat() {
+
+    }
 
     public Cat(String name, String bride, String color) {
         this.name = name;
         this.bride = bride;
         this.color = color;
     }
+
 
     public String getName() {
         return name;

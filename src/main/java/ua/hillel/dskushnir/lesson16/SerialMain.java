@@ -24,12 +24,13 @@ import java.util.stream.IntStream;
 
 public class SerialMain {
     public static void main(String[] args) throws JAXBException ,IOException{
-        NewCourse newCourse=new NewCourse(11,"AAA");
+       NewCourse newCourse=new NewCourse(11,"AAA");
         NewCourse newCourse1=new NewCourse(22,"BBB");
 
         jaxb();
         jacksonXml();
         jacksonJson(newCourse1);
+
     }
     private static void jaxb()throws JAXBException{
         JAXBContext jaxbContext = JAXBContext.newInstance(NewCourse.class);
@@ -40,28 +41,27 @@ public class SerialMain {
         Object obj=unmarshaller.unmarshal(new File("courseJabx.xml"));
         System.out.println(obj);
     }
-    private static void jacksonXml()throws IOException{
+    private static void jacksonXml()throws IOException {
         XmlMapper xmlMapper = new XmlMapper();
         xmlMapper.registerModule(new JavaTimeModule());
-        xmlMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,false);
-        NewCourse newCourse=getCourse();
-        xmlMapper.writeValue(new File("courseJackson_XML.xml"),newCourse);
-        NewCourse newCourse1=xmlMapper.readValue(new File("courseJackson_XML.xml"),NewCourse.class);
+        xmlMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+        NewCourse newCourse = getCourse();
+        xmlMapper.writeValue(new File("courseJackson_XML.xml"), newCourse);
+        NewCourse newCourse1 = xmlMapper.readValue(new File("courseJackson_XML.xml"), NewCourse.class);
         System.out.println(newCourse1);
     }
     private static void jacksonJson(NewCourse newCourse1)throws IOException{
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,false);
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
+            objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,false);
+            objectMapper.writeValue(new File("courseJackson_JSON.json"),newCourse1);
+            NewCourse newCourse2=objectMapper.readValue(new File("courseJackson_JSON.json"),NewCourse.class);
+            System.out.println(newCourse2);
 
-        objectMapper.writeValue(new File("courseJackson_JSON.json"),newCourse1);
-        NewCourse newCourse2=objectMapper.readValue(new File("courseJackson_JSON.json"),NewCourse.class);
-        System.out.println(newCourse2);
+        }
 
-    }
+
     public static NewCourse getCourse(){
-
-
-      return new NewCourse();
+        return new NewCourse();
     }
 }
