@@ -5,14 +5,14 @@ package ua.hillel.dskushnir.lesson20;
 import java.util.Iterator;
 
 
-public class Tree implements Iterable<String> {
+public class Tree implements Iterable <String>{
 
     public TreeNode root = null;
     private int size;
 
 
 
-    private static class TreeNode {
+    public static class TreeNode {
 
         private String key;
         private TreeNode parent;
