@@ -14,7 +14,7 @@ public abstract class RealProblem implements Problem{
     public void problem(){
         isProblem=true;
     }
-    public void healed(){
+    public void noProblem(){
         isProblem=false;
     }
 

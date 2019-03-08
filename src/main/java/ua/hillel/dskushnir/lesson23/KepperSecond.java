@@ -1,10 +1,17 @@
 package ua.hillel.dskushnir.lesson23;
 
-import java.time.LocalDate;
+
 
 public class KepperSecond extends Keeper {
 
-    public void update(int id, LocalDate localDate) {
 
+    @Override
+    public void update(Animal animal) {
+        super.update(animal);
+    }
+
+    @Override
+    public void answer() {
+        super.answer();
     }
 }

@@ -1,12 +1,15 @@
 package ua.hillel.dskushnir.lesson23;
 
-import java.time.LocalDate;
-
-public class Doctor extends Person {
-
+public class Doctor extends Person implements Answer{
 
     @Override
     public void update(Animal animal) {
+        super.update(animal);
+        answer();
+    }
 
+    @Override
+    public void answer() {
+        System.out.println("Health Ok");
     }
 }

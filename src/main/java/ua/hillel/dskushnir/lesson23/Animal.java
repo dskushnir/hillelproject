@@ -3,13 +3,12 @@ package ua.hillel.dskushnir.lesson23;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Animal extends RealProblem implements Subject {
     public int id;
     public LocalDate localDate;
-    private ArrayList<Observer> observers;
-
-
+    private List<Observer> observers =new ArrayList<>();
 
     public Animal(int id, LocalDate localDate) {
         this.id = id;
@@ -18,6 +17,11 @@ public abstract class Animal extends RealProblem implements Subject {
 
     public int getId() {
         return id;
+    }
+
+   @Override
+    public void setProblem(boolean problem) {
+        super.setProblem(problem);
     }
 
     public void setId(int id) {
@@ -49,15 +53,18 @@ public abstract class Animal extends RealProblem implements Subject {
 
     }
 
-    @Override
+   @Override
     public void problem() {
         super.problem();
+        notifyObservers();
     }
 
     @Override
-    public void healed() {
-        super.healed();
+    public void noProblem() {
+        super.noProblem();
     }
+
+
 
     @Override
     public void notifyObservers() {
@@ -70,6 +77,14 @@ public abstract class Animal extends RealProblem implements Subject {
     @Override
     public boolean isProblem() {
         return super.isProblem();
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id=" + id +
+                ", localDate=" + localDate +
+                '}';
     }
 }
 

@@ -2,25 +2,19 @@ package ua.hillel.dskushnir.lesson23;
 
 import java.time.LocalDate;
 
-public class HomeAnimal extends Animal {
-
+public class HomeAnimal extends Animal   {
     public HomeAnimal(int id, LocalDate localDate) {
         super(id, localDate);
-    }
-    private boolean isSick;
-    private boolean isHungry;
-
-    public void setSick(boolean sick) {
-        isSick = sick;
-    }
-
-    public void setHungry(boolean hungry) {
-        isHungry = hungry;
     }
 
     @Override
     public int getId() {
         return super.getId();
+    }
+
+    @Override
+    public void setProblem(boolean problem) {
+        super.setProblem(problem);
     }
 
     @Override
@@ -49,21 +43,29 @@ public class HomeAnimal extends Animal {
     }
 
     @Override
-    public void notifyObservers() {
-        super.notifyObservers();
-    }
-
-    @Override
     public void problem() {
         super.problem();
     }
 
     @Override
-    public void healed() {
-        super.healed();
+    public void noProblem() {
+        super.noProblem();
     }
 
+    @Override
+    public void notifyObservers() {
+        super.notifyObservers();
+    }
 
+    @Override
+    public boolean isProblem() {
+        return super.isProblem();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
 
 

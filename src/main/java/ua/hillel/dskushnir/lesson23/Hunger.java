@@ -1,7 +1,10 @@
 package ua.hillel.dskushnir.lesson23;
 
 public abstract class Hunger extends RealProblem {
-    public boolean isHunger=isProblem();
+    @Override
+    public void setProblem(boolean problem) {
+        super.setProblem(problem);
+    }
 
     @Override
     public boolean isProblem() {
@@ -14,7 +17,8 @@ public abstract class Hunger extends RealProblem {
     }
 
     @Override
-    public void healed() {
-        super.healed();
+    public void noProblem() {
+        super.noProblem();
     }
 }
+

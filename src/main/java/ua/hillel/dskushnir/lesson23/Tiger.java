@@ -2,8 +2,8 @@ package ua.hillel.dskushnir.lesson23;
 
 import java.time.LocalDate;
 
-public class WildAnimal extends Animal {
-    public WildAnimal(int id, LocalDate localDate) {
+public class Tiger extends WildAnimal {
+    public Tiger(int id, LocalDate localDate) {
         super(id, localDate);
     }
 
