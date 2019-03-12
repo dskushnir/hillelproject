@@ -6,6 +6,7 @@ import java.time.LocalDate;
 public abstract class Keeper implements ObserverHunger{
     @Override
     public void updateHunger(Animal animal, LocalDate localDate) {
+
         animal.animalNoHunger();
 
 

@@ -11,13 +11,6 @@ public class AnimalHome extends Animal {
     }
 
     @Override
-    public String toString() {
-        return super.toString();
-    }
-
-
-
-    @Override
     public void animalSick() {
         super.animalSick();
     }
@@ -26,7 +19,6 @@ public class AnimalHome extends Animal {
     public void animalNoSick() {
         super.animalNoSick();
     }
-
 
     @Override
     public void animalHunger() {
@@ -37,8 +29,6 @@ public class AnimalHome extends Animal {
     public void animalNoHunger() {
         super.animalNoHunger();
     }
-
-
 
     @Override
     public void animalWool() {
@@ -93,5 +83,10 @@ public class AnimalHome extends Animal {
     @Override
     public void notifyObserverWool() {
         super.notifyObserverWool();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

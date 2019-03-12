@@ -4,6 +4,7 @@ package ua.hillel.dskushnir.lesson23;
 import java.time.LocalDate;
 
 public class Director  implements ObserverSick,ObserverHunger,ObserverWool{
+
     @Override
     public void updateHunger(Animal animal, LocalDate localDate) {
 
@@ -25,10 +26,6 @@ public class Director  implements ObserverSick,ObserverHunger,ObserverWool{
         System.out.println("Director say:"+animal.toString()+"Shaggy animal! Groomer -Help!!!");
 
     }
-
-
-
-
 
 }
 

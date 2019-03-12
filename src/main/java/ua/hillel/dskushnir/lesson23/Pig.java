@@ -1,13 +1,18 @@
 package ua.hillel.dskushnir.lesson23;
 
-public class AnimalWild extends Animal {
-    public AnimalWild(int id) {
+public class Pig extends AnimalHome {
+    public Pig(int id) {
         super(id);
     }
 
     @Override
     public int getId() {
         return super.getId();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
     @Override
@@ -28,6 +33,16 @@ public class AnimalWild extends Animal {
     @Override
     public void animalNoHunger() {
         super.animalNoHunger();
+    }
+
+    @Override
+    public void animalWool() {
+        super.animalWool();
+    }
+
+    @Override
+    public void animalNoWool() {
+        super.animalNoWool();
     }
 
     @Override
@@ -61,7 +76,17 @@ public class AnimalWild extends Animal {
     }
 
     @Override
-    public String toString() {
-        return super.toString();
+    public void registerObserverWool(ObserverWool observerWool) {
+        super.registerObserverWool(observerWool);
+    }
+
+    @Override
+    public void removeObserverWool(ObserverWool observerWool) {
+        super.removeObserverWool(observerWool);
+    }
+
+    @Override
+    public void notifyObserverWool() {
+        super.notifyObserverWool();
     }
 }

@@ -1,6 +1,6 @@
 package ua.hillel.dskushnir.lesson23;
 
-import java.time.LocalDate;
+
 
 public class ZooMessage {
     public static void main(String[] args) {
@@ -12,8 +12,8 @@ public class ZooMessage {
 
 
 
-      AnimalHome pig=new AnimalHome(456);
-       pig.registerObserverHunger(director);
+        Pig pig=new Pig(456);
+        pig.registerObserverHunger(director);
         pig.registerObserverHunger(doctor);
         pig.registerObserverSick(director);
         pig.registerObserverSick(doctor);
@@ -27,8 +27,7 @@ public class ZooMessage {
         pig.animalHunger();
         System.out.println();
 
-        AnimalWild tiger=new AnimalWild(789);
-
+        Tiger tiger=new Tiger(789);
         tiger.registerObserverHunger(director);
         tiger.registerObserverHunger(doctor);
         tiger.registerObserverHunger(keeperFirst);

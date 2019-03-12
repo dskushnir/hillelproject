@@ -6,49 +6,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Animal implements SubjectSick,SubjectHunger,SubjectWool {
-    public int id;
-
+    private int id;
+    private ProblemAnimal sick=new ProblemAnimal();
+    private ProblemAnimal hunger=new ProblemAnimal();
+    private ProblemAnimal wool=new ProblemAnimal();
     private List<ObserverSick> observerS =new ArrayList<>();
     private List<ObserverHunger>observerH=new ArrayList<>();
     private List<ObserverWool>observerW=new ArrayList<>();
 
     public Animal(int id) {
         this.id = id;
-
     }
 
     public int getId() {
         return id;
     }
 
-
-    @Override
-    public String toString() {
-        return "Animal{" +
-                "id=" + id +
-                ", localDate=" + LocalDate.now() +
-                '}';
-    }
-
-    private Sick sick=new Sick();
-    public Animal(Sick sick) {
-
-        this.sick = sick;
-    }
-
     public void animalSick(){
         sick.problem();
         notifyObserverSick();
-
     }
     public void animalNoSick(){
-
         sick.noProblem();
-    }
-    private Hunger hunger=new Hunger();
-    public Animal(Hunger hunger) {
-
-        this.hunger = hunger;
     }
 
     public void animalHunger(){
@@ -58,26 +37,19 @@ public abstract class Animal implements SubjectSick,SubjectHunger,SubjectWool {
     public void animalNoHunger(){
         hunger.noProblem();
     }
-   private  Wool wool=new Wool();
-
-    public Animal(Wool wool) {
-        this.wool = wool;
-
-    }
 
     public void animalWool(){
         wool.problem();
         notifyObserverWool();
     }
-    public void animalNoWool(){
-
+    public void animalNoWool() {
         wool.noProblem();
+
     }
 
     @Override
     public void registerObserverHunger(ObserverHunger observerHunger) {
         observerH.add(observerHunger);
-
     }
 
     @Override
@@ -85,7 +57,6 @@ public abstract class Animal implements SubjectSick,SubjectHunger,SubjectWool {
         int i = observerH.indexOf(observerHunger);
         if (i >= 0) {
             observerH.remove(i);
-
         }
     }
 
@@ -94,14 +65,12 @@ public abstract class Animal implements SubjectSick,SubjectHunger,SubjectWool {
         for (ObserverHunger o : observerH) {
             o.updateHunger(this,
                     LocalDate.now());
-
         }
     }
 
     @Override
     public void registerObserverSick(ObserverSick observerSick) {
         observerS.add(observerSick);
-
     }
 
     @Override
@@ -117,7 +86,6 @@ public abstract class Animal implements SubjectSick,SubjectHunger,SubjectWool {
         for (ObserverSick o:observerS){
             o.updateSick(this,LocalDate.now() );
         }
-
     }
 
     @Override
@@ -132,7 +100,6 @@ public abstract class Animal implements SubjectSick,SubjectHunger,SubjectWool {
         if (i >= 0) {
             observerW.remove(i);
         }
-
     }
 
     @Override
@@ -142,7 +109,14 @@ public abstract class Animal implements SubjectSick,SubjectHunger,SubjectWool {
         }
     }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName()+"{" +
+                "id=" + id +
+                ", "+ LocalDate.now() +
+                '}';
 
+    }
 }
 
 

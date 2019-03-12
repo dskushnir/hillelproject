@@ -13,7 +13,7 @@ public class Doctor implements ObserverSick,ObserverHunger{
      @Override
      public void updateSick(Animal animal,LocalDate localDate) {
          animal.animalNoSick();
-         System.out.println("Doctor say:"+animal.toString()+"is healthy ");
+         System.out.println("Doctor say:"+animal.toString()+"is healthy !");
 
      }
 
