@@ -1,20 +1,29 @@
 package ua.hillel.dskushnir.lesson23;
 
-public abstract class Sick implements Problem {
+public  class Sick implements Problem {
     private boolean isSick;
-    public void setSick(boolean sick){
-        isSick=sick;
-    }
+
     @Override
     public boolean isProblem() {
         return isSick;
     }
-    public void sick(){
+
+    @Override
+    public void problem() {
+
         isSick=true;
     }
-    public void noSick(){
+
+    @Override
+    public void noProblem() {
         isSick=false;
+
     }
+
+
+
+
+
 
 }
 

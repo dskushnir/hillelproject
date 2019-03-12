@@ -1,18 +1,13 @@
 package ua.hillel.dskushnir.lesson23;
 
 
+import java.time.LocalDate;
 
-public abstract class Keeper extends Person implements Answer{
+public abstract class Keeper implements ObserverHunger{
     @Override
-    public void update(Animal animal) {
-        super.update(animal);
-        answer();
+    public void updateHunger(Animal animal, LocalDate localDate) {
+        animal.animalNoHunger();
 
-    }
 
-    @Override
-    public void answer() {
-
-        System.out.println("Food Ok");
     }
 }

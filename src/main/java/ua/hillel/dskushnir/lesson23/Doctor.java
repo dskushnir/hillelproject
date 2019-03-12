@@ -1,15 +1,20 @@
 package ua.hillel.dskushnir.lesson23;
 
-public class Doctor extends Person implements Answer{
+import java.time.LocalDate;
 
-    @Override
-    public void update(Animal animal) {
-        super.update(animal);
-        answer();
-    }
+public class Doctor implements ObserverSick,ObserverHunger{
 
-    @Override
-    public void answer() {
-        System.out.println("Health Ok");
-    }
-}
+     @Override
+     public void updateHunger(Animal animal, LocalDate localDate) {
+         System.out.println("Doktor say:"+animal.toString()+"Keeper must help!");
+
+     }
+
+     @Override
+     public void updateSick(Animal animal,LocalDate localDate) {
+         animal.animalNoSick();
+         System.out.println("Doctor say:"+animal.toString()+"is healthy ");
+
+     }
+
+ }

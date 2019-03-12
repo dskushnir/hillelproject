@@ -1,24 +1,23 @@
 package ua.hillel.dskushnir.lesson23;
 
-public abstract class Hunger extends RealProblem {
-    @Override
-    public void setProblem(boolean problem) {
-        super.setProblem(problem);
-    }
-
+public  class Hunger implements Problem {
+    private boolean isHunger;
     @Override
     public boolean isProblem() {
-        return super.isProblem();
+        return isHunger;
     }
 
     @Override
     public void problem() {
-        super.problem();
+        isHunger=true;
+
     }
 
     @Override
     public void noProblem() {
-        super.noProblem();
+        isHunger=false;
+
     }
 }
+
 

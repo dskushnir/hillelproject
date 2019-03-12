@@ -5,87 +5,144 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Animal extends RealProblem implements Subject {
+public abstract class Animal implements SubjectSick,SubjectHunger,SubjectWool {
     public int id;
-    public LocalDate localDate;
-    private List<Observer> observers =new ArrayList<>();
 
-    public Animal(int id, LocalDate localDate) {
+    private List<ObserverSick> observerS =new ArrayList<>();
+    private List<ObserverHunger>observerH=new ArrayList<>();
+    private List<ObserverWool>observerW=new ArrayList<>();
+
+    public Animal(int id) {
         this.id = id;
-        this.localDate = LocalDate.now();
+
     }
 
     public int getId() {
         return id;
     }
 
-   @Override
-    public void setProblem(boolean problem) {
-        super.setProblem(problem);
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public LocalDate getLocalDate() {
-        return localDate;
-    }
-
-    public void setLocalDate(LocalDate localDate) {
-        this.localDate = localDate;
-    }
-
-    @Override
-    public void registerObserver(Observer o) {
-        observers.add(o);
-
-
-    }
-
-    @Override
-    public void removeObserver(Observer o) {
-        int i = observers.indexOf(o);
-        if (i >= 0) {
-            observers.remove(i);
-        }
-
-
-    }
-
-   @Override
-    public void problem() {
-        super.problem();
-        notifyObservers();
-    }
-
-    @Override
-    public void noProblem() {
-        super.noProblem();
-    }
-
-
-
-    @Override
-    public void notifyObservers() {
-        for (Observer o:observers){
-            o.update(this );
-        }
-
-    }
-
-    @Override
-    public boolean isProblem() {
-        return super.isProblem();
-    }
 
     @Override
     public String toString() {
         return "Animal{" +
                 "id=" + id +
-                ", localDate=" + localDate +
+                ", localDate=" + LocalDate.now() +
                 '}';
     }
+
+    private Sick sick=new Sick();
+    public Animal(Sick sick) {
+
+        this.sick = sick;
+    }
+
+    public void animalSick(){
+        sick.problem();
+        notifyObserverSick();
+
+    }
+    public void animalNoSick(){
+
+        sick.noProblem();
+    }
+    private Hunger hunger=new Hunger();
+    public Animal(Hunger hunger) {
+
+        this.hunger = hunger;
+    }
+
+    public void animalHunger(){
+        hunger.problem();
+      notifyObserverHunger();
+    }
+    public void animalNoHunger(){
+        hunger.noProblem();
+    }
+   private  Wool wool=new Wool();
+
+    public Animal(Wool wool) {
+        this.wool = wool;
+
+    }
+
+    public void animalWool(){
+        wool.problem();
+        notifyObserverWool();
+    }
+    public void animalNoWool(){
+
+        wool.noProblem();
+    }
+
+    @Override
+    public void registerObserverHunger(ObserverHunger observerHunger) {
+        observerH.add(observerHunger);
+
+    }
+
+    @Override
+    public void removeObserverHunger(ObserverHunger observerHunger) {
+        int i = observerH.indexOf(observerHunger);
+        if (i >= 0) {
+            observerH.remove(i);
+
+        }
+    }
+
+    @Override
+    public void notifyObserverHunger() {
+        for (ObserverHunger o : observerH) {
+            o.updateHunger(this,
+                    LocalDate.now());
+
+        }
+    }
+
+    @Override
+    public void registerObserverSick(ObserverSick observerSick) {
+        observerS.add(observerSick);
+
+    }
+
+    @Override
+    public void removeObserverSick(ObserverSick observerSick) {
+        int i = observerS.indexOf(observerSick);
+        if (i >= 0) {
+            observerS.remove(i);
+        }
+    }
+
+    @Override
+    public void notifyObserverSick() {
+        for (ObserverSick o:observerS){
+            o.updateSick(this,LocalDate.now() );
+        }
+
+    }
+
+    @Override
+    public void registerObserverWool(ObserverWool observerWool) {
+        observerW.add(observerWool);
+
+    }
+
+    @Override
+    public void removeObserverWool(ObserverWool observerWool) {
+        int i = observerW.indexOf(observerWool);
+        if (i >= 0) {
+            observerW.remove(i);
+        }
+
+    }
+
+    @Override
+    public void notifyObserverWool() {
+        for (ObserverWool o:observerW){
+            o.updateWool(this,LocalDate.now() );
+        }
+    }
+
+
 }
 
 
